@@ -13,7 +13,7 @@ conda create -n ucentral_tgrado python=3.12.13 -y
 conda activate ucentral_tgrado
 pip install -r requirements.txt
 copy .env.example .env
-python scripts/train.py
+python scripts.train 
 python run.py
 ```
 

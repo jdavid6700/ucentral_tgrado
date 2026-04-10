@@ -1,0 +1,44 @@
+target_season: "252"
+historical_line_filter: null
+
+raw_files:
+  consolidado: "Matriz_Consolidado.xlsx"
+  precios: "Lista_precio_252.xlsx"
+  catalogo: "Catalogo.xls"
+
+text_column: "text_blob"
+categorical_columns:
+  - line
+  - business_unit
+  - collection
+  - base_color
+  - pattern_type
+  - genre_clean
+  - audience_clean
+  - style_clean
+  - has_pc_text
+  - has_wheels_text
+  - has_organizer_text
+numeric_columns:
+  - price
+  - volumen_calculado
+  - inventory_available
+  - nlp_text_length
+
+candidate_filters:
+  same_line: true
+  same_business_unit: true
+  current_season_only: true
+  positive_inventory_only: true
+  same_has_pc: true
+  exclude_same_sku: true
+  exclude_same_name: true
+
+model:
+  top_k_default: 3
+  n_neighbors: 15
+  default_metric: cosine
+  n_components_default: 20
+  n_clusters_default: 8
+  min_svd_components: 5
+  max_svd_components: 40

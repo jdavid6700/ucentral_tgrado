@@ -1,0 +1,2 @@
+class ModelNotFittedError(RuntimeError):
+    pass

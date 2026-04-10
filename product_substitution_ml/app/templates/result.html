@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Resultado de sustitutos{% endblock %}
+{% block content %}
+<section class="card">
+  <a href="/" class="back-link">← Nueva búsqueda</a>
+  <h2>Resultados para {{ sku }}</h2>
+  {% if error %}
+    <div class="error-box">{{ error }}</div>
+  {% endif %}
+  {% if recommendations %}
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>SKU</th>
+        <th>Producto</th>
+        <th>UEN</th>
+        <th>Línea</th>
+        <th>Colección</th>
+        <th>Cluster</th>
+        <th>Distancia</th>
+        <th>Score</th>
+        <th>Explicación</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in recommendations %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ item.sku }}</td>
+        <td>{{ item.product_name }}</td>
+        <td>{{ item.business_unit }}</td>
+        <td>{{ item.line }}</td>
+        <td>{{ item.collection }}</td>
+        <td>{{ item.cluster_label }}</td>
+        <td>{{ item.distance }}</td>
+        <td>{{ item.similarity_score }}</td>
+        <td><pre>{{ item.explanation }}</pre></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% elif not error %}
+    <p>No se encontraron recomendaciones.</p>
+  {% endif %}
+</section>
+{% endblock %}

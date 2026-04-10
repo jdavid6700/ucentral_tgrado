@@ -1,0 +1,14 @@
+category: accessories
+weights:
+  name_similarity: 0.30
+  collection_match: 0.10
+  color_match: 0.10
+  material_match: 0.10
+  style_match: 0.10
+  volume_similarity: 0.10
+  price_similarity: 0.10
+  wheel_match: 0.10
+score:
+  exact_collection_bonus: 10.0
+  same_line_bonus: 10.0
+  same_business_unit_bonus: 10.0
